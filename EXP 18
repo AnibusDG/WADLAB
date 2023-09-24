@@ -1,0 +1,36 @@
+18. I) Write a PHP program to store current data-time in a COOKIEand display theLastvisitedon‟date-timeonthewebpageuponreopeningthe  samepage.
+
+<?php
+date_default_timezone_set('Asia/kolkota');
+$inTwoMonths=60*60*24*60+time();
+setcookie('lastVisit',date("G:i-m/d/y"),$inTwoMonths);
+if(isset($_COOKIE['lastVisit']))
+{
+$visit=$_COOKIE['lastVisit'];
+echo "your last visit was - ",$visit;
+}
+else
+echo " you have got some stale cookies";
+?>
+
+-----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------
+
+ii) Write a PHP program to count number of visits that increments and display after each refresh of the page.
+
+<?
+session_start();
+session.save_path=/var/www/html/temp/SESSION
+session_register("count);
+if(!isset($_SESSION))
+{
+$_SESSION["count"]=0;
+echo "counter initiazed ";
+}
+else 
+{
+$_SESSION["count"]++;
+}
+echo "The counter is now $_SESSION[count] reload this page to increment ";
+?>
+
